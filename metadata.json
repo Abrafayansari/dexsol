@@ -1,0 +1,6 @@
+{
+  "name": "Dexsol Digital Agency",
+  "description": "A creative digital agency that helps ambitious brands build exceptional digital experiences.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
