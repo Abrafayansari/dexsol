@@ -6,28 +6,24 @@ import ServiceStack from "./ServiceStack";
 export default function Services() {
   return (
     <section id="services" className="relative bg-brand-bg overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-white/50 to-transparent pointer-events-none" />
       
-      {/* Header section with generous negative space and cinematic typography */}
-      <div className="w-full text-center max-w-4xl mx-auto px-6 pt-32 pb-16 relative z-10">
+      <div className="w-full text-center max-w-4xl mx-auto px-5 sm:px-6 pt-24 md:pt-32 pb-10 md:pb-14 relative z-10">
         
-        {/* Animated ambient tag */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-xs font-mono font-bold uppercase tracking-[0.15em] mb-6 shadow-sm">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 border border-brand-green/20 text-brand-green text-[11px] font-mono font-bold uppercase tracking-[0.15em] mb-5 shadow-sm backdrop-blur">
           <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
           <span>Specialized Capabilities</span>
         </div>
         
-        {/* Main Section Header */}
-        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark mb-6">
-          Our Core Services
+        <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark mb-5 leading-[1.05]">
+          Services built to move the needle.
         </h2>
         
-        {/* Elegant Description */}
-        <p className="text-brand-text-light text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto font-light">
-          From strategic brand positioning to custom code deployment, we engineer digital products that turn ambitious visions into high-impact business results. Scroll down to see our card stack.
+        <p className="text-brand-text-light text-sm md:text-base lg:text-lg leading-relaxed max-w-2xl mx-auto">
+          Strategy, design, code, commerce, and growth systems shaped into digital work that feels sharp on launch day and keeps compounding after it.
         </p>
       </div>
 
-      {/* Cinematic Stacking Cards Component */}
       <div className="w-full relative z-10">
         <ServiceStack />
       </div>

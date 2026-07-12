@@ -88,28 +88,40 @@ export default function ServiceStack() {
     if (!sectionRef.current || cards.length === 0) return;
 
     let ctx = gsap.context(() => {
-      // Set initial positions: all cards except first start below the viewport
-      gsap.set(cards.slice(1), { y: () => window.innerHeight });
+      const mm = gsap.matchMedia();
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          pin: true,
-          start: "top 15%",
-          end: `+=${cards.length * 100}%`, // Scroll distance mapped to array length
-          scrub: 1, // Smooth scrub
-          markers: false // set to true to debug
-        }
+      mm.add("(min-width: 768px)", () => {
+        gsap.set(cards.slice(1), { y: () => Math.min(window.innerHeight * 0.72, 620) });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            pin: true,
+            start: "top 12%",
+            end: `+=${cards.length * 58}%`,
+            scrub: 0.45,
+            invalidateOnRefresh: true,
+            markers: false
+          }
+        });
+
+        cards.forEach((card, i) => {
+          if (i === 0) return;
+          tl.to(card, {
+            y: i * 28,
+            scale: 1 - (cards.length - i) * 0.008,
+            duration: 0.72,
+            ease: "power1.out"
+          });
+        });
+
+        return () => {
+          tl.kill();
+        };
       });
 
-      // Animate each sequential card from bottom of window to its stacked offset
-      cards.forEach((card, i) => {
-        if (i === 0) return;
-        tl.to(card, {
-          y: i * 35, // This is the offset that forms the "stacking card" header peek
-          duration: 1,
-          ease: "none"
-        });
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(cards, { clearProps: "transform" });
       });
     }, sectionRef);
 
@@ -119,86 +131,79 @@ export default function ServiceStack() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full max-w-7xl mx-auto px-6 pt-20 pb-[30vh] my-10 flex flex-col md:flex-row gap-10 md:gap-14 items-start"
+      className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-6 md:pt-14 pb-20 md:pb-[24vh] my-4 md:my-10 flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-14 items-start"
     >
-      {/* 
-        LEFT COLUMN ("Something to stay")
-        This acts as the sticky header block. 
-      */}
-      <div className="w-full md:w-[350px] lg:w-[400px] shrink-0 sticky top-[15vh] bg-white border border-black/5 rounded-3xl p-8 lg:p-10 flex flex-col justify-between shadow-[0_20px_60px_rgba(0,0,0,0.04)]">
+      <div className="w-full md:w-[330px] lg:w-[390px] shrink-0 md:sticky md:top-[12vh] bg-white/90 border border-black/5 rounded-[28px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between shadow-[0_24px_80px_rgba(17,24,39,0.07)] backdrop-blur">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-xs font-mono font-bold uppercase tracking-[0.15em] mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-[11px] font-mono font-bold uppercase tracking-[0.15em] mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
             <span>Core Capabilities</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-display font-bold text-brand-dark tracking-tight leading-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-dark tracking-tight leading-tight mb-5">
             Engineering Digital Excellence.
           </h2>
-          <p className="text-brand-text-light text-sm lg:text-base leading-relaxed font-light mb-8">
+          <p className="text-brand-text-light text-sm lg:text-base leading-relaxed mb-7">
             From strategic brand positioning to custom code deployment, we engineer digital products that turn ambitious visions into high-impact business results. Let's stack the odds in your favor.
           </p>
         </div>
         <a
           href="#contact"
-          className="group inline-flex items-center gap-2 self-start px-5 py-3 rounded-xl bg-brand-dark text-white hover:bg-brand-green transition-colors duration-300 text-xs font-bold uppercase tracking-wider shadow-lg"
+          className="group inline-flex items-center gap-2 self-start px-5 py-3 rounded-xl bg-brand-dark text-white hover:bg-brand-green hover:text-brand-dark transition-colors duration-300 text-xs font-bold uppercase tracking-wider shadow-lg"
         >
           <span>Work With Us</span>
           <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
         </a>
       </div>
 
-      {/* 
-        RIGHT COLUMN (Stacking Cards)
-        They perfectly stack visually due to CSS grid-area.
-      */}
-      <div className="relative w-full flex-1 grid mt-10 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
+      <div className="relative w-full flex-1 grid gap-5 md:gap-0 mt-2 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
         {SERVICES_DATA.map((service, i) => (
           <div
             key={service.id}
-            ref={el => cardsRef.current[i] = el}
-            className="w-full p-8 md:p-10 shadow-[0_-15px_40px_rgba(0,0,0,0.06)] border border-black/5 flex flex-col will-change-transform bg-white"
+            ref={el => {
+              cardsRef.current[i] = el;
+            }}
+            className="relative w-full overflow-hidden rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_18px_55px_rgba(17,24,39,0.08)] md:shadow-[0_-14px_44px_rgba(17,24,39,0.08)] border border-black/5 flex flex-col will-change-transform bg-white md:[grid-area:1/1/2/2]"
             style={{
-              gridArea: "1 / 1 / 2 / 2", // Cards stack perfectly on each other in HTML
               zIndex: i + 1,
-              height: "480px"
+              minHeight: "clamp(390px, 58vh, 500px)"
             }}
           >
-            {/* Top Glowing Trim */}
-            <div className={`absolute top-0 left-0 w-full h-1.5 rounded-t-full ${service.gradient}`} />
+            <div className={`absolute top-0 left-0 w-full h-1.5 ${service.gradient}`} />
+            <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-bg pointer-events-none" />
 
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 rounded-2xl flex items-center justify-center bg-brand-bg text-brand-dark`}>
+            <div className="relative flex items-start justify-between gap-4 mb-7">
+              <div className="flex items-start gap-4 min-w-0">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex shrink-0 items-center justify-center bg-brand-bg text-brand-dark border border-black/5">
                   {service.icon}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <span className="text-[10px] text-brand-text-muted font-mono tracking-[0.2em] uppercase">
                     CAPABILITY // {service.num}
                   </span>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark tracking-tight mt-1">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark tracking-tight mt-1 leading-tight">
                     {service.title}
                   </h3>
                 </div>
               </div>
+              <span className="hidden sm:block font-display text-5xl font-bold text-brand-dark/5 leading-none">
+                {service.num}
+              </span>
             </div>
 
-            {/* Content */}
-            <p className="text-brand-text-light text-base font-light leading-relaxed mb-8 flex-1">
+            <p className="relative text-brand-text-light text-sm sm:text-base leading-relaxed mb-7 flex-1 max-w-2xl">
               {service.desc}
             </p>
 
-            {/* Features Footer */}
-            {/* <div className="grid grid-cols-2 gap-4 mt-auto">
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-3 mt-auto">
               {service.features.map((feature, fi) => (
-                <div key={fi} className="flex items-center gap-2 text-xs text-brand-text-muted font-medium">
-                  <span className="w-5 h-5 rounded-full flex items-center justify-center bg-brand-bg border border-black/5">
+                <div key={fi} className="flex items-center gap-2 text-xs text-brand-text-light font-semibold min-w-0">
+                  <span className="w-5 h-5 rounded-full flex shrink-0 items-center justify-center bg-brand-bg border border-black/5">
                     <Check className="w-3 h-3 text-brand-dark" />
                   </span>
-                  <span className="truncate">{feature}</span>
+                  <span className="min-w-0 truncate">{feature}</span>
                 </div>
               ))}
-            </div> */}
+            </div>
 
           </div>
         ))}
