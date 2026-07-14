@@ -14,34 +14,48 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
   const pathRef = useRef<SVGPathElement | null>(null);
   const trailRef = useRef<SVGPathElement | null>(null);
   const planeRef = useRef<SVGGElement | null>(null);
-  const [length, setLength] = useState(0);
+  const planeArtworkRef = useRef<SVGGElement | null>(null);
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia("(max-width: 767px)").matches);
 
   useEffect(() => {
-    // Wait for layout to settle to calculate SVG path length
-    const handleCalculation = () => {
-      if (pathRef.current && trailRef.current && planeRef.current && wrapperRef.current) {
-        const totalLength = pathRef.current.getTotalLength();
-        setLength(totalLength);
+    const mediaQuery = window.matchMedia("(max-width: 767px)");
+    const updateViewport = () => setIsMobile(mediaQuery.matches);
 
-        // Configure initial trail dash properties
+    mediaQuery.addEventListener("change", updateViewport);
+    return () => mediaQuery.removeEventListener("change", updateViewport);
+  }, []);
+
+  useEffect(() => {
+    let timeline: gsap.core.Timeline | undefined;
+    let animationFrame: number | undefined;
+
+    const createAnimation = () => {
+      if (pathRef.current && trailRef.current && planeRef.current && planeArtworkRef.current && wrapperRef.current) {
+        timeline?.kill();
+        const totalLength = pathRef.current.getTotalLength();
+
         gsap.set(trailRef.current, {
           strokeDasharray: totalLength,
           strokeDashoffset: totalLength,
         });
+        // Scale the artwork inside a separate group, leaving the outer group as
+        // an exact, unscaled anchor for MotionPathPlugin.
+        gsap.set(planeArtworkRef.current, {
+          scale: isMobile ? 0.98 : 1.1,
+          transformOrigin: "50% 50%",
+        });
 
-        // Create main timeline bound to scrolling
-        const tl = gsap.timeline({
+        timeline = gsap.timeline({
           scrollTrigger: {
             trigger: wrapperRef.current,
-            start: "top 40%",
-            end: "bottom 90%",
-            scrub: 1.2, // smooth scroll lag/catch-up
+            start: isMobile ? "top 15%" : "top 40%",
+            end: isMobile ? "bottom 75%" : "bottom 90%",
+            scrub: 0.5,
             invalidateOnRefresh: true,
           },
         });
 
-        // 1. Animate paper plane along the responsive SVG path
-        tl.to(
+        timeline.to(
           planeRef.current,
           {
             motionPath: {
@@ -56,8 +70,7 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
           0
         );
 
-        // 2. Grow the trailing colorful path in perfect synchrony with the paper plane
-        tl.to(
+        timeline.to(
           trailRef.current,
           {
             strokeDashoffset: 0,
@@ -69,24 +82,31 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
       }
     };
 
-    // Delay calculation slightly to guarantee DOM rendering and coordinates are fully ready
-    const timeoutId = setTimeout(handleCalculation, 200);
+    const scheduleAnimation = () => {
+      if (animationFrame !== undefined) window.cancelAnimationFrame(animationFrame);
+      animationFrame = window.requestAnimationFrame(createAnimation);
+    };
 
-    // Re-calculate on window resize to keep it perfectly responsive
-    window.addEventListener("resize", handleCalculation);
+    scheduleAnimation();
+    window.addEventListener("resize", scheduleAnimation, { passive: true });
 
     return () => {
-      clearTimeout(timeoutId);
-      window.removeEventListener("resize", handleCalculation);
+      if (animationFrame !== undefined) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("resize", scheduleAnimation);
+      timeline?.kill();
     };
-  }, [wrapperRef]);
+  }, [wrapperRef, isMobile]);
+
+  const flightPath = isMobile
+    ? "M 325,115 C 245,35 105,120 110,360 C 115,570 310,575 250,830 C 200,1080 80,1050 78,1370 C 76,1580 205,1630 310,1710"
+    : "M 1380,115 C 1400,290 1390,500 1360,650 C 1290,770 1080,800 860,960 C 650,1120 480,1370 150,1650";
 
   return (
     <div className="absolute inset-0 pointer-events-none z-20 select-none overflow-visible">
       {/* Flight Path SVG */}
       <svg
         className="w-full h-full min-h-[1400px]"
-        viewBox="0 0 1440 1800"
+        viewBox={isMobile ? "0 0 390 1800" : "0 0 1440 1800"}
         fill="none"
         preserveAspectRatio="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +146,7 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
         {/* 1. Background dashed 'Flight Plan' path */}
         <path
           ref={pathRef}
-          d="M 1200,150 C 950,50 650,150 550,450 C 450,750 950,700 850,1100 C 750,1500 450,1400 150,1650"
+          d={flightPath}
           stroke="#d1d6d2"
           strokeWidth="2"
           strokeLinecap="round"
@@ -137,7 +157,7 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
         {/* 2. Glowing trail path that grows on scroll */}
         <path
           ref={trailRef}
-          d="M 1200,150 C 950,50 650,150 550,450 C 450,750 950,700 850,1100 C 750,1500 450,1400 150,1650"
+          d={flightPath}
           stroke="url(#trail-grad)"
           strokeWidth="3.5"
           strokeLinecap="round"
@@ -146,17 +166,19 @@ export default function BreezeAnimation({ wrapperRef }: BreezeAnimationProps) {
         />
 
         {/* 3. Fully styled 3D-like Paper Plane */}
-        <g ref={planeRef} id="paper-plane" className="origin-center scale-[0.8] md:scale-[1.1]">
-          {/* Left Wing */}
-          <path d="M 28,0 L -28,-14 L -8,0 Z" fill="url(#plane-grad-left)" />
-          {/* Right Wing */}
-          <path d="M 28,0 L -8,0 L -28,14 Z" fill="url(#plane-grad-right)" />
-          {/* Top Fold highlight */}
-          <path d="M 28,0 L -28,-14 L -28,0 Z" fill="rgba(0, 0, 0, 0.12)" />
-          {/* Bottom Fold shading */}
-          <path d="M 28,0 L -28,0 L -28,14 Z" fill="rgba(255, 255, 255, 0.1)" />
-          {/* Center Keel/Fold underneath */}
-          <path d="M -8,0 L -18,10 L -28,0 Z" fill="url(#plane-grad-keel)" />
+        <g ref={planeRef} id="paper-plane">
+          <g ref={planeArtworkRef}>
+            {/* Left Wing */}
+            <path d="M 28,0 L -28,-14 L -8,0 Z" fill="url(#plane-grad-left)" />
+            {/* Right Wing */}
+            <path d="M 28,0 L -8,0 L -28,14 Z" fill="url(#plane-grad-right)" />
+            {/* Top Fold highlight */}
+            <path d="M 28,0 L -28,-14 L -28,0 Z" fill="rgba(0, 0, 0, 0.12)" />
+            {/* Bottom Fold shading */}
+            <path d="M 28,0 L -28,0 L -28,14 Z" fill="rgba(255, 255, 255, 0.1)" />
+            {/* Center Keel/Fold underneath */}
+            <path d="M -8,0 L -18,10 L -28,0 Z" fill="url(#plane-grad-keel)" />
+          </g>
         </g>
       </svg>
     </div>

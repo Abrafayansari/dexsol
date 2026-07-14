@@ -79,7 +79,7 @@ export default function App() {
   }, []);
 
   return (
-    <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+    <ReactLenis root options={{ lerp: 0.1, duration: 0.9, smoothWheel: true }}>
       <div className="min-h-screen bg-brand-bg text-brand-dark selection:bg-brand-green selection:text-brand-dark overflow-x-hidden relative">
         
         {/* Dynamic Top Scroll Progress Bar */}
