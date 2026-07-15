@@ -42,15 +42,15 @@ export default function Hero() {
                 className="h-full w-full object-cover"
               />
             </span>
-            <span>Creative Agency</span>
+            <span className="text-brand-green">Digital Agency</span>
           </span>
 
           <span className="mt-[clamp(1rem,2.6vw,2.4rem)] flex flex-wrap items-center gap-x-[clamp(0.8rem,1.8vw,1.75rem)] gap-y-3 text-[clamp(3.55rem,7.15vw,7.1rem)]">
-            <span className="font-medium">for the</span>
+            <span className="font-medium">built for</span>
             <span className={`${capsuleClass} h-[0.7em] w-[5.1em]`}>
               <img
-                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1100&q=90"
-                alt="Diver moving through blue water"
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1100&q=90"
+                alt="Digital business growth"
                 className="h-full w-full object-cover object-center"
               />
             </span>
@@ -59,21 +59,25 @@ export default function Hero() {
           <span className="relative mt-[clamp(1rem,2.6vw,2.4rem)] flex flex-wrap items-center gap-x-[clamp(0.8rem,1.8vw,1.75rem)] gap-y-3 text-[clamp(3.55rem,7.15vw,7.1rem)]">
             <span className={`${capsuleClass} h-[0.7em] w-[4.1em]`}>
               <img
-                src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?auto=format&fit=crop&w=1100&q=90"
-                alt="Colorful coral reef"
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1100&q=90"
+                alt="Data and analytics"
                 className="h-full w-full object-cover"
               />
             </span>
-            <span>Ocean</span>
+            <span>Growth</span>
 
-            <span className="absolute left-[clamp(4.5rem,8vw,8rem)] top-[0.45em] flex h-[0.78em] w-[0.78em] items-center justify-center rounded-full border-[3px] border-white bg-[#141817] font-sans text-[0.11em] font-semibold uppercase tracking-[0.08em] text-white shadow-lg">
+            <span className="absolute left-[clamp(4.5rem,8vw,8rem)] top-[0.45em] flex h-[0.78em] w-[0.78em] items-center justify-center rounded-full border-[3px] border-white bg-brand-cyan font-sans text-[0.11em] font-semibold uppercase tracking-[0.08em] text-white shadow-lg shadow-brand-cyan/30 hover:bg-brand-green hover:text-brand-dark transition-colors duration-300">
               <span className="rotate-[-18deg]">Our story ↗</span>
             </span>
+
+            {/* Added soft glowing abstract elements requested by the prompt */}
+            <div className="absolute top-[-50%] left-[-20%] w-[100%] h-[150%] rounded-full bg-brand-cyan/5 blur-[120px] pointer-events-none -z-10" />
+            <div className="absolute bottom-[-20%] right-[-10%] w-[60%] h-[120%] rounded-full bg-brand-green/10 blur-[100px] pointer-events-none -z-10" />
           </span>
         </h1>
 
         <p className="mt-9 max-w-sm text-sm leading-relaxed text-brand-text-light md:mt-12 md:text-base">
-          We create brands, websites, and campaigns with the clarity to stand out and the craft to carry businesses forward.
+          We create premium websites, web applications, and digital products that combine exceptional design with clean engineering to create real business impact.
         </p>
       </div>
     </section>

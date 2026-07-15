@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowUpRight, MessageSquare } from "lucide-react";
+import logoImg from "../assets/images/logo.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,26 +24,9 @@ export default function Navbar() {
         }`}
       >
         {/* Brand Logo */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 md:w-11 md:h-11 rounded-xl bg-brand-dark flex items-center justify-center p-2 text-brand-cyan transition-transform duration-300 group-hover:scale-105 shadow-sm">
-            <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
-              <circle cx="24" cy="24" r="20" fill="#0a0a0a" />
-              <path
-                d="M24 8C15.2 8 8 15.2 8 24s7.2 16 16 16"
-                stroke="#4ecdc4"
-                strokeWidth="6"
-                strokeLinecap="round"
-              />
-              <rect x="28" y="14" width="12" height="12" rx="3" fill="#5cb85c" />
-            </svg>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display text-lg md:text-xl font-extrabold text-brand-dark tracking-tight leading-none">
-              DEXSOL
-            </span>
-            <span className="text-[9px] md:text-[10px] font-bold text-brand-text-muted tracking-widest uppercase mt-0.5">
-              DIGITAL AGENCY
-            </span>
+        <a href="#home" className="flex items-center group">
+          <div className="h-14 md:h-20 w-[180px] md:w-[240px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
+            <img src={logoImg} alt="Dexsol Logo" className="w-full h-full object-contain object-left" />
           </div>
         </a>
 

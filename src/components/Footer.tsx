@@ -1,5 +1,6 @@
 import { MouseEvent } from "react";
 import { Instagram, Twitter, Linkedin, Facebook, ArrowUp } from "lucide-react";
+import logoImg from "../assets/images/logo.png";
 
 export default function Footer() {
   const handleScrollTop = (e: MouseEvent) => {
@@ -16,31 +17,14 @@ export default function Footer() {
           
           {/* Brand Info */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
-            <a href="#home" className="flex items-center gap-3 group mb-6">
-              <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-2 text-brand-dark transition-transform duration-300 group-hover:scale-105 shadow-sm">
-                <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
-                  <circle cx="24" cy="24" r="20" fill="#fff" />
-                  <path
-                    d="M24 8C15.2 8 8 15.2 8 24s7.2 16 16 16"
-                    stroke="#4ecdc4"
-                    strokeWidth="6"
-                    strokeLinecap="round"
-                  />
-                  <rect x="28" y="14" width="12" height="12" rx="3" fill="#5cb85c" />
-                </svg>
-              </div>
-              <div className="flex flex-col text-white">
-                <span className="font-display text-lg font-extrabold tracking-tight leading-none">
-                  DEXSOL
-                </span>
-                <span className="text-[9px] font-bold text-white/50 tracking-widest uppercase mt-0.5">
-                  DIGITAL AGENCY
-                </span>
+            <a href="#home" className="flex items-center group mb-6">
+              <div className="h-16 md:h-24 w-[200px] md:w-[280px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
+                <img src={logoImg} alt="Dexsol Logo" className="w-full h-full object-contain object-left" />
               </div>
             </a>
             
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm">
-              We are a modern, high-performance creative digital agency focused on building bespoke storefronts, brand structures, and digital experiences that turn ideas into meaningful online growth.
+              We are a premium digital solutions agency that designs and develops modern, fast, and scalable digital experiences for businesses that want to grow online.
             </p>
 
             {/* Social Icons */}
@@ -123,17 +107,17 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Digital Marketing
+                  E-commerce Development
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Mobile Apps
+                  Web Applications
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Brand Strategy
+                  Website Optimization
                 </a>
               </li>
             </ul>

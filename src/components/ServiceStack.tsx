@@ -52,7 +52,7 @@ const SERVICES_DATA: ServiceItem[] = [
     desc: "Holistic brand discovery, identity definitions, visual styling guides, and market-positioning workshops crafted to build authority and connect deep with your core audience.",
     icon: <Compass className="w-6 h-6 stroke-[2]" />,
     features: ["Logo Systems", "Moodboards", "Positioning Maps", "Creative Assets"],
-    gradient: "bg-brand-orange",
+    gradient: "bg-brand-green",
   },
   {
     id: "seo",
@@ -61,7 +61,7 @@ const SERVICES_DATA: ServiceItem[] = [
     desc: "High-level search engine optimization utilizing semantic markup, schema validation, real-time index monitoring, and optimized speed metrics to guarantee top page rankings.",
     icon: <Search className="w-6 h-6 stroke-[2]" />,
     features: ["Semantic Schema", "Index Monitoring", "Speed Audits", "Keyword Intel"],
-    gradient: "bg-brand-purple",
+    gradient: "bg-brand-green",
   },
   {
     id: "marketing",
@@ -81,7 +81,6 @@ if (typeof window !== "undefined") {
 
 export default function ServiceStack() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const cardStackRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -92,15 +91,15 @@ export default function ServiceStack() {
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
-        gsap.set(cards.slice(1), { y: () => Math.min(window.innerHeight * 0.72, 620) });
+        gsap.set(cards.slice(1), { y: () => window.innerHeight + 200 });
 
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: sectionRef.current,
             pin: true,
             start: "top 12%",
-            end: () => `+=${window.innerHeight * (cards.length - 1) * 0.5}`,
-            scrub: 0.25,
+            end: `+=${cards.length * 58}%`,
+            scrub: 0.45,
             invalidateOnRefresh: true,
             markers: false
           }
@@ -110,7 +109,6 @@ export default function ServiceStack() {
           if (i === 0) return;
           tl.to(card, {
             y: i * 28,
-            scale: 1 - (cards.length - i) * 0.008,
             duration: 0.72,
             ease: "power1.out"
           });
@@ -122,34 +120,7 @@ export default function ServiceStack() {
       });
 
       mm.add("(max-width: 767px)", () => {
-        // Keep the same card-stack interaction on phones, with a shorter travel
-        // distance so each card settles naturally within the smaller viewport.
-        gsap.set(cards.slice(1), { y: () => Math.min(window.innerHeight * 0.7, 480) });
-
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: cardStackRef.current,
-            pin: true,
-            start: "top 6%",
-            end: () => `+=${window.innerHeight * (cards.length - 1) * 0.58}`,
-            scrub: 0.25,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        cards.forEach((card, i) => {
-          if (i === 0) return;
-          tl.to(card, {
-            y: i * 18,
-            scale: 1 - (cards.length - i) * 0.006,
-            duration: 0.72,
-            ease: "power1.out",
-          });
-        });
-
-        return () => {
-          tl.kill();
-        };
+        gsap.set(cards, { clearProps: "transform" });
       });
     }, sectionRef);
 
@@ -183,14 +154,14 @@ export default function ServiceStack() {
         </a>
       </div>
 
-      <div ref={cardStackRef} className="relative w-full flex-1 grid gap-0 mt-2 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
+      <div className="relative w-full flex-1 grid gap-5 md:gap-0 mt-2 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
         {SERVICES_DATA.map((service, i) => (
           <div
             key={service.id}
             ref={el => {
               cardsRef.current[i] = el;
             }}
-            className="relative w-full overflow-hidden rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_18px_55px_rgba(17,24,39,0.08)] md:shadow-[0_-14px_44px_rgba(17,24,39,0.08)] border border-black/5 flex flex-col will-change-transform bg-white [grid-area:1/1/2/2]"
+            className="relative w-full overflow-hidden rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_18px_55px_rgba(17,24,39,0.08)] md:shadow-[0_-14px_44px_rgba(17,24,39,0.08)] border border-black/5 flex flex-col will-change-transform bg-white md:[grid-area:1/1/2/2]"
             style={{
               zIndex: i + 1,
               minHeight: "clamp(390px, 58vh, 500px)"
@@ -205,7 +176,7 @@ export default function ServiceStack() {
                   {service.icon}
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[10px] text-brand-text-muted font-mono tracking-[0.2em] uppercase">
+                  <span className="text-[10px] text-brand-teGxt-muted font-mono tracking-[0.2em] uppercase">
                     CAPABILITY // {service.num}
                   </span>
                   <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark tracking-tight mt-1 leading-tight">

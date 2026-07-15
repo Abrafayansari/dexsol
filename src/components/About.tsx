@@ -10,11 +10,11 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
         
-        {/* Left Side: Visuals Collage */}
-        <div className="lg:col-span-6 relative h-[500px] md:h-[600px] w-full flex items-center justify-center">
+        {/* Left Side (Now Right): Visuals Collage */}
+        <div className="lg:col-span-6 relative h-[500px] md:h-[600px] w-full flex items-center justify-center lg:order-last">
           
           {/* Back decorative rotated colored shape */}
-          <div className="absolute top-8 left-12 w-64 h-64 bg-brand-yellow rounded-3xl -rotate-12 shadow-sm -z-10 animate-floating-slow"></div>
+          <div className="absolute top-8 left-12 w-64 h-64 bg-brand-cyan/20 rounded-3xl -rotate-12 shadow-sm -z-10 animate-floating-slow"></div>
 
           {/* Main Team Working Photo */}
           <div className="absolute left-10 top-16 w-80 h-[420px] md:w-96 md:h-[480px] rounded-[36px] overflow-hidden shadow-lg z-10 border-4 border-white bg-brand-bg">
@@ -38,21 +38,21 @@ export default function About() {
 
           {/* Floating 'Years of Experience' Badge Counter */}
           <div className="absolute left-2 bottom-12 bg-white px-6 py-5 rounded-2xl shadow-xl border border-gray-100 z-30 flex flex-col items-start hover:scale-105 transition-transform">
-            <span className="font-display text-4xl md:text-5xl font-black text-brand-green leading-none">
+            <span className="font-display text-4xl md:text-5xl font-black text-brand-cyan leading-none">
               12+
             </span>
-            <span className="text-[10px] md:text-xs font-bold text-brand-text-muted tracking-wider uppercase mt-1.5">
+            <span className="text-[10px] md:text-xs font-bold text-brand-cyan/70 tracking-wider uppercase mt-1.5">
               Years Agency Exp
             </span>
           </div>
 
         </div>
 
-        {/* Right Side: Rich Brand Content */}
-        <div className="lg:col-span-6 flex flex-col items-start text-left">
+        {/* Right Side (Now Left): Rich Brand Content */}
+        <div className="lg:col-span-6 flex flex-col items-start text-left lg:order-first">
           
           {/* Label Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-yellow/15 text-brand-dark text-xs font-extrabold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-extrabold uppercase tracking-widest mb-6">
             <Heart size={12} className="stroke-[2.5]" />
             <span>About Dexsol</span>
           </div>
@@ -64,11 +64,11 @@ export default function About() {
 
           {/* Description */}
           <p className="text-brand-text-light text-base leading-relaxed mb-4">
-            <strong>Dexsol</strong> is a creative digital agency that helps ambitious brands build exceptional digital experiences. We specialize in custom website development, UI/UX design, Shopify development, branding, and conversion-focused digital solutions that combine strategy, creativity, and modern technology.
+            <strong>Dexsol</strong> is a premium digital solutions agency that designs and develops modern digital experiences for businesses that want to grow online. We specialize in building fast, scalable, and visually refined websites, web applications, and digital products that combine exceptional design with clean engineering.
           </p>
 
           <p className="text-brand-text-light text-base leading-relaxed mb-8">
-            Every project is crafted with a focus on performance, aesthetics, and user experience, enabling businesses to stand out, grow faster, and leave a lasting impression. At Dexsol, we don't just design websites—we create digital products that drive results, strengthen brands, and turn ideas into meaningful online experiences.
+            We don't simply build websites—we create digital experiences that strengthen brands, improve customer engagement, and help businesses achieve their goals. Every project is approached with strategy, attention to detail, and a commitment to quality.
           </p>
 
           {/* Grid of Key Strengths / Features */}
@@ -105,7 +105,7 @@ export default function About() {
 
             {/* 3. Results Driven */}
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-brand-yellow/20 flex items-center justify-center text-brand-dark shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan shrink-0">
                 <Target size={20} className="stroke-[2.5]" />
               </div>
               <div>
@@ -120,7 +120,7 @@ export default function About() {
 
             {/* 4. 24/7 Support */}
             <div className="flex items-start gap-3.5">
-              <div className="w-10 h-10 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-brand-green/20 flex items-center justify-center text-brand-cyan shrink-0">
                 <ShieldCheck size={20} className="stroke-[2.5]" />
               </div>
               <div>
@@ -137,7 +137,7 @@ export default function About() {
           {/* CTA Link */}
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-4 bg-brand-dark hover:bg-brand-green text-white hover:text-brand-dark rounded-xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-pointer group"
+            className="inline-flex items-center gap-2 px-7 py-4 bg-brand-cyan hover:bg-gradient-to-r hover:from-brand-cyan hover:to-brand-green text-white rounded-2xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 shadow-[0_8px_30px_rgba(5,91,101,0.25)] hover:shadow-[0_8px_30px_rgba(167,243,208,0.4)] cursor-pointer group"
           >
             <span>Start a Project with Us</span>
             <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />

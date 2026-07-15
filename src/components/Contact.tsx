@@ -183,13 +183,12 @@ export default function Contact() {
                     className="w-full px-5 py-4 border border-gray-200 bg-brand-bg rounded-xl font-medium text-sm text-brand-dark outline-none focus:border-brand-cyan focus:bg-white focus:ring-4 focus:ring-brand-cyan/10 transition-all duration-300 cursor-pointer appearance-none"
                   >
                     <option value="Select a service">Select a service</option>
-                    <option value="Web Development">Web Development</option>
+                    <option value="Web Development">Website Development</option>
+                    <option value="Web Applications">Web Applications</option>
                     <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="Digital Marketing">Digital Marketing</option>
-                    <option value="Mobile Apps">Mobile Apps</option>
-                    <option value="Brand Strategy">Brand Strategy</option>
-                    <option value="E-Commerce">E-Commerce</option>
-                    <option value="Shopify development">Shopify Development</option>
+                    <option value="E-Commerce & Shopify">E-Commerce & Shopify</option>
+                    <option value="SEO Development">SEO Development</option>
+                    <option value="Branding Support">Branding Support</option>
                   </select>
                 </div>
 
