@@ -22,34 +22,34 @@ const SERVICES_DATA: ServiceItem[] = [
     id: "web-dev",
     num: "01",
     title: "Website Development",
-    desc: "Custom high-performance websites, portals, and web applications built using cutting-edge reactive tech for flawless responsiveness, direct SEO, and scalability.",
+    desc: "Custom, high-performance websites and web applications built using modern frameworks, fast-loading architecture, and clean, SEO-ready code.",
     icon: <Laptop className="w-6 h-6 stroke-[2]" />,
-    features: ["Next.js & React 19", "Automated Pixel SEO", "Headless CMS", "Serverless"],
+    features: ["Fast & React JS", "Headless CMS", "Automated Pixel SEO", "Animations"],
     gradient: "bg-brand-green",
   },
   {
     id: "ui-ux",
     num: "02",
     title: "UI/UX Design",
-    desc: "Immersive, user-centric screen interfaces crafted via systematic wireframing, high-fidelity mockups, and strategic layouts designed to drive maximum customer retention.",
+    desc: "User-centric screen designs crafted via systematic wireframing, high-fidelity mockups, and strategic layouts built to hold attention and drive action.",
     icon: <Palette className="w-6 h-6 stroke-[2]" />,
-    features: ["Figma Wireframes", "Fluid Layouts", "Design Systems", "UX Auditing"],
+    features: ["Figma Wireframes", "Design Systems", "Pixel Layouts", "UX Auditing"],
     gradient: "bg-brand-cyan",
   },
   {
     id: "shopify",
     num: "03",
     title: "Shopify Development",
-    desc: "Advanced Shopify 2.0 storefront setups, custom product catalogs, subscription gateways, and fluid single-page checkouts structured to boost conversion.",
+    desc: "Advanced Shopify 2.0 storefront builds, custom product catalogs, subscription integrations, and streamlined single-page checkouts designed to boost conversions.",
     icon: <ShoppingBag className="w-6 h-6 stroke-[2]" />,
-    features: ["Liquid Themes", "Headless Shopify", "Custom Checkout", "ERP Sync"],
+    features: ["Liquid Themes", "Custom Checkout", "Headless Shopify", "ERP Sync"],
     gradient: "bg-brand-yellow",
   },
   {
     id: "brand",
     num: "04",
     title: "Brand Identity",
-    desc: "Holistic brand discovery, identity definitions, visual styling guides, and market-positioning workshops crafted to build authority and connect deep with your core audience.",
+    desc: "Full brand discovery, identity design, and visual style guides, paired with market-positioning workshops that build authority and connect with your core audience.",
     icon: <Compass className="w-6 h-6 stroke-[2]" />,
     features: ["Logo Systems", "Moodboards", "Positioning Maps", "Creative Assets"],
     gradient: "bg-brand-green",
@@ -58,7 +58,7 @@ const SERVICES_DATA: ServiceItem[] = [
     id: "seo",
     num: "05",
     title: "SEO Optimization",
-    desc: "High-level search engine optimization utilizing semantic markup, schema validation, real-time index monitoring, and optimized speed metrics to guarantee top page rankings.",
+    desc: "In-depth search engine optimization covering semantic markup, schema validation, real-time index monitoring, and speed metrics tuned for measurable ranking gains.",
     icon: <Search className="w-6 h-6 stroke-[2]" />,
     features: ["Semantic Schema", "Index Monitoring", "Speed Audits", "Keyword Intel"],
     gradient: "bg-brand-green",
@@ -67,7 +67,7 @@ const SERVICES_DATA: ServiceItem[] = [
     id: "marketing",
     num: "06",
     title: "Digital Marketing",
-    desc: "Targeted brand campaigns, high-converting copy, automated pixel tracking, and custom conversion funnels engineered to expand your digital footprint and amplify revenue.",
+    desc: "Targeted brand campaigns, high-converting ad copy, pixel-based conversion tracking, and custom funnels built to expand your reach and grow revenue.",
     icon: <BarChart3 className="w-6 h-6 stroke-[2]" />,
     features: ["Targeted Ads", "Funnel Copy", "Pixel Tracking", "ROI Attribution"],
     gradient: "bg-brand-pink",
@@ -136,13 +136,13 @@ export default function ServiceStack() {
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-[11px] font-mono font-bold uppercase tracking-[0.15em] mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
-            <span>Core Capabilities</span>
+            <span>SPECIALIZED CAPABILITIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-dark tracking-tight leading-tight mb-5">
-            Engineering Digital Excellence.
+            Services built to move the needle.
           </h2>
           <p className="text-brand-text-light text-sm lg:text-base leading-relaxed mb-7">
-            From strategic brand positioning to custom code deployment, we engineer digital products that turn ambitious visions into high-impact business results. Let's stack the odds in your favor.
+            Strategy, design, code, commerce, and growth systems shaped into digital work that feels sharp on launch day and keeps compounding after it.
           </p>
         </div>
         <a

@@ -17,15 +17,14 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 py-5 flex justify-between items-center z-50 transition-all duration-400 ${
-          isScrolled
+        className={`fixed top-0 left-0 w-full px-6 md:px-12 lg:px-24 py-5 flex justify-between items-center z-50 transition-all duration-400 ${isScrolled
             ? "bg-brand-bg/90 backdrop-blur-md shadow-md border-b border-brand-bg-alt/40 py-4"
             : "bg-transparent"
-        }`}
+          }`}
       >
         {/* Brand Logo */}
         <a href="#home" className="flex items-center group">
-          <div className="h-14 md:h-20 w-[180px] md:w-[240px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
+          <div className="h-9 md:h-12 w-[115px] md:w-[160px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
             <img src={logoImg} alt="Dexsol Logo" className="w-full h-full object-contain object-left" />
           </div>
         </a>
@@ -75,7 +74,7 @@ export default function Navbar() {
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-dark text-white rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-brand-green hover:text-brand-dark hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-pointer"
           >
             <MessageSquare size={16} />
-            <span>WhatsApp Us</span>
+            <span>Start a Project</span>
             <ArrowUpRight size={14} />
           </a>
         </div>
@@ -146,7 +145,7 @@ export default function Navbar() {
               className="w-full text-center py-4 bg-brand-dark text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand-green hover:text-brand-dark transition-colors shadow-sm"
             >
               <MessageSquare size={18} />
-              <span>WhatsApp Message</span>
+              <span>Start a Project</span>
             </a>
           </div>
         </div>

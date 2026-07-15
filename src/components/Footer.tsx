@@ -11,18 +11,18 @@ export default function Footer() {
   return (
     <footer className="bg-brand-dark text-white pt-20 pb-10 px-6 md:px-12 lg:px-24 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Upper Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16 mb-16">
-          
+
           {/* Brand Info */}
           <div className="lg:col-span-5 flex flex-col items-start text-left">
             <a href="#home" className="flex items-center group mb-6">
-              <div className="h-16 md:h-24 w-[200px] md:w-[280px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
+              <div className="h-9 md:h-12 w-[120px] md:w-[170px] flex items-center justify-start transition-transform duration-300 group-hover:scale-105">
                 <img src={logoImg} alt="Dexsol Logo" className="w-full h-full object-contain object-left" />
               </div>
             </a>
-            
+
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm">
               We are a premium digital solutions agency that designs and develops modern, fast, and scalable digital experiences for businesses that want to grow online.
             </p>
@@ -83,7 +83,7 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#contact" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Careers
+                  Contact
                 </a>
               </li>
             </ul>
@@ -107,17 +107,17 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  E-commerce Development
+                  Shopify Development
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Web Applications
+                  Brand Identity
                 </a>
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Website Optimization
+                  SEO Optimization
                 </a>
               </li>
             </ul>
@@ -162,7 +162,7 @@ export default function Footer() {
         {/* Lower Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between pt-8 border-t border-white/5 gap-4">
           <p className="text-white/40 text-xs text-center sm:text-left">
-            © 2026 DEXSOL Solutions. All rights reserved.
+            © 2026 Dexsol. All rights reserved.
           </p>
           <button
             onClick={handleScrollTop}

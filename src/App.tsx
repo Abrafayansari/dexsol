@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { ReactLenis } from "lenis/react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import BreezeAnimation from "./components/BreezeAnimation";
+// import BreezeAnimation from "./components/BreezeAnimation"; // Commented out — re-enable to restore aeroplane animation
 import About from "./components/About";
 import Services from "./components/Services";
 import Reviews from "./components/Reviews";
@@ -10,9 +10,17 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 
 export default function App() {
+  // const breezeWrapperRef = useRef<HTMLDivElement | null>(null); // Used by BreezeAnimation — re-enable when animation is active
   const breezeWrapperRef = useRef<HTMLDivElement | null>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  // Wake up the backend server on page load (prevents cold-start delay on first form submission)
+  useEffect(() => {
+    fetch("http://localhost:5000/api/ping")
+      .then(() => console.log("Backend is awake ✓"))
+      .catch(() => console.warn("Backend ping failed — server may be offline"));
+  }, []);
 
   useEffect(() => {
     // 1. Mouse Tracking with RequestAnimationFrame (Zero React State Lag)
@@ -101,9 +109,9 @@ export default function App() {
 
         {/* Joint Wrapper enclosing Hero and About for the scrolling Paper Plane flight path */}
         <div ref={breezeWrapperRef} className="relative w-full overflow-visible">
-          
-          {/* Breeze Scroll-Driven Flight Path and Paper Plane */}
-          <BreezeAnimation wrapperRef={breezeWrapperRef} />
+
+          {/* Breeze Scroll-Driven Flight Path and Paper Plane — commented out, re-enable below to restore */}
+          {/* <BreezeAnimation wrapperRef={breezeWrapperRef} /> */}
 
           {/* Hero Landing Stage */}
           <Hero />

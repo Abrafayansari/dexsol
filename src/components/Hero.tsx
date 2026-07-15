@@ -67,7 +67,7 @@ export default function Hero() {
             <span>Growth</span>
 
             <span className="absolute left-[clamp(4.5rem,8vw,8rem)] top-[0.45em] flex h-[0.78em] w-[0.78em] items-center justify-center rounded-full border-[3px] border-white bg-brand-cyan font-sans text-[0.11em] font-semibold uppercase tracking-[0.08em] text-white shadow-lg shadow-brand-cyan/30 hover:bg-brand-green hover:text-brand-dark transition-colors duration-300">
-              <span className="rotate-[-18deg]">Our story ↗</span>
+              <span className="rotate-[-18deg]">See Our Work ↗</span>
             </span>
 
             {/* Added soft glowing abstract elements requested by the prompt */}
@@ -77,7 +77,7 @@ export default function Hero() {
         </h1>
 
         <p className="mt-9 max-w-sm text-sm leading-relaxed text-brand-text-light md:mt-12 md:text-base">
-          We create premium websites, web applications, and digital products that combine exceptional design with clean engineering to create real business impact.
+          We design, build, and grow digital products that actually move your business forward.
         </p>
       </div>
     </section>

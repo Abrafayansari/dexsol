@@ -39,7 +39,7 @@ export default function Reviews() {
         {/* Header section */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-cyan text-xs font-bold uppercase tracking-widest mb-4">
-            <span>Our Reviews</span>
+            <span>TESTIMONIALS</span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
             What Our Clients Say

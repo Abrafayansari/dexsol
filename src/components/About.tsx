@@ -54,7 +54,7 @@ export default function About() {
           {/* Label Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-extrabold uppercase tracking-widest mb-6">
             <Heart size={12} className="stroke-[2.5]" />
-            <span>About Dexsol</span>
+            <span>ABOUT DEXSEL</span>
           </div>
 
           {/* Title */}
@@ -64,11 +64,11 @@ export default function About() {
 
           {/* Description */}
           <p className="text-brand-text-light text-base leading-relaxed mb-4">
-            <strong>Dexsol</strong> is a premium digital solutions agency that designs and develops modern digital experiences for businesses that want to grow online. We specialize in building fast, scalable, and visually refined websites, web applications, and digital products that combine exceptional design with clean engineering.
+            <strong>Dexsol</strong> is a digital solutions agency that designs and develops modern, fast, and scalable websites, apps, and digital products for businesses that want to grow online.
           </p>
 
           <p className="text-brand-text-light text-base leading-relaxed mb-8">
-            We don't simply build websites—we create digital experiences that strengthen brands, improve customer engagement, and help businesses achieve their goals. Every project is approached with strategy, attention to detail, and a commitment to quality.
+            We don't just build websites — we create digital experiences that strengthen brands, improve engagement, and help businesses achieve their goals. Every project is approached with strategy first, design second, and a genuine commitment to quality throughout.
           </p>
 
           {/* Grid of Key Strengths / Features */}
@@ -83,7 +83,7 @@ export default function About() {
                   Fast Delivery
                 </h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Quick, agile turnarounds without compromising pixel-perfection.
+                  We stick to timelines without cutting corners — your project ships when we say it will.
                 </p>
               </div>
             </div>
@@ -98,7 +98,7 @@ export default function About() {
                   Creative Ideas
                 </h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Innovative designs crafted to make your brand uniquely stand out.
+                  Original thinking over recycled templates. We design for your brand, not for a portfolio grid.
                 </p>
               </div>
             </div>
@@ -113,7 +113,7 @@ export default function About() {
                   Results Driven
                 </h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Engineered strictly around metrics, revenue, and direct conversions.
+                  Every design decision is tied back to a business outcome — traffic, leads, or conversions.
                 </p>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function About() {
                   24/7 Priority Support
                 </h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Committed post-launch maintenance and continuous support.
+                  Real humans, real fast responses. We don't disappear after launch.
                 </p>
               </div>
             </div>

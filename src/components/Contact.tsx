@@ -1,8 +1,10 @@
 import { useState, FormEvent } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
 
 export default function Contact() {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -11,22 +13,43 @@ export default function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    // Simulate API Submission
-    setFormSubmitted(true);
-    // Clear form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      service: "Select a service",
-      message: "",
-    });
-    // Reset submission notification after 6 seconds
-    setTimeout(() => {
-      setFormSubmitted(false);
-    }, 6000);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send the message.");
+      }
+
+      setFormSubmitted(true);
+      // Clear form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        service: "Select a service",
+        message: "",
+      });
+      // Reset submission notification after 6 seconds
+      setTimeout(() => {
+        setFormSubmitted(false);
+      }, 6000);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setErrorMessage("Something went wrong. Please try again later or email us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,7 +63,7 @@ export default function Contact() {
         {/* Left: Contact Info */}
         <div className="lg:col-span-5 flex flex-col items-start text-left pt-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-bold uppercase tracking-wider mb-6">
-            <span>Get In Touch</span>
+            <span>GET IN TOUCH</span>
           </div>
           
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-[1.15] mb-6">
@@ -77,7 +100,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="text-[11px] font-black uppercase tracking-widest text-brand-text-muted mb-1">
-                  Phone / WhatsApp
+                  Phone
                 </h4>
                 <a
                   href="tel:+1234567890"
@@ -183,12 +206,12 @@ export default function Contact() {
                     className="w-full px-5 py-4 border border-gray-200 bg-brand-bg rounded-xl font-medium text-sm text-brand-dark outline-none focus:border-brand-cyan focus:bg-white focus:ring-4 focus:ring-brand-cyan/10 transition-all duration-300 cursor-pointer appearance-none"
                   >
                     <option value="Select a service">Select a service</option>
-                    <option value="Web Development">Website Development</option>
-                    <option value="Web Applications">Web Applications</option>
-                    <option value="UI/UX Design">UI/UX Design</option>
-                    <option value="E-Commerce & Shopify">E-Commerce & Shopify</option>
-                    <option value="SEO Development">SEO Development</option>
-                    <option value="Branding Support">Branding Support</option>
+                    <option value="Website Development">Website Development</option>
+                    <option value="UI-UX Design">UI-UX Design</option>
+                    <option value="Shopify Development">Shopify Development</option>
+                    <option value="Brand Identity">Brand Identity</option>
+                    <option value="SEO Optimization">SEO Optimization</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
                   </select>
                 </div>
 
@@ -207,13 +230,30 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* Error Message */}
+                {errorMessage && (
+                  <div className="text-red-500 text-sm font-semibold">
+                    {errorMessage}
+                  </div>
+                )}
+
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full py-4.5 bg-brand-dark hover:bg-brand-cyan text-white font-bold rounded-xl text-base tracking-wide flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-102 hover:shadow-lg cursor-pointer"
+                  disabled={isSubmitting}
+                  className="w-full py-4.5 bg-brand-dark hover:bg-brand-cyan text-white font-bold rounded-xl text-base tracking-wide flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-102 hover:shadow-lg cursor-pointer disabled:opacity-70 disabled:pointer-events-none"
                 >
-                  <span>Send Message</span>
-                  <Send size={16} />
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send size={16} />
+                    </>
+                  )}
                 </button>
               </form>
             )}
