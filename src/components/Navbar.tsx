@@ -74,12 +74,10 @@ export default function Navbar() {
             className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-dark text-white rounded-xl text-sm font-semibold transition-all duration-300 hover:bg-brand-green hover:text-brand-dark hover:-translate-y-0.5 shadow-sm hover:shadow-md cursor-pointer"
           >
             <MessageSquare size={16} />
-            <span>Start a Project</span>
+            <span>Start Growth</span>
             <ArrowUpRight size={14} />
           </a>
         </div>
-
-        {/* Mobile menu trigger */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="md:hidden w-10 h-10 rounded-xl bg-brand-dark/5 flex items-center justify-center text-brand-dark hover:bg-brand-dark/10 transition-colors cursor-pointer"
@@ -145,7 +143,7 @@ export default function Navbar() {
               className="w-full text-center py-4 bg-brand-dark text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-brand-green hover:text-brand-dark transition-colors shadow-sm"
             >
               <MessageSquare size={18} />
-              <span>Start a Project</span>
+              <span>Start Growth</span>
             </a>
           </div>
         </div>

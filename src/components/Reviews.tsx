@@ -39,13 +39,13 @@ export default function Reviews() {
         {/* Header section */}
         <div className="text-center max-w-2xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-brand-cyan text-xs font-bold uppercase tracking-widest mb-4">
-            <span>TESTIMONIALS</span>
+            <span>RESULTS</span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">
-            What Our Clients Say
+            Growth you can feel in the business.
           </h2>
           <p className="text-gray-400 text-sm md:text-base leading-relaxed">
-            Don't just take our word for it. We build strong, collaborative relationships with ambitious businesses around the world to deliver real, measurable digital solutions.
+            The best proof is what happens after launch: better leads, stronger conversions, clearer positioning, and more confident customers.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ export default function Reviews() {
         </div>
 
         {/* Global Stats Footer Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 pt-16 border-t border-white/10">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 pt-16 border-t border-white/10">
           {stats.map((stat, sIdx) => (
             <div
               key={sIdx}
@@ -73,7 +73,7 @@ export default function Reviews() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>

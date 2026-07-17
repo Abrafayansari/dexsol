@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate min-h-screen overflow-hidden bg-white px-5 pb-12 pt-28 sm:px-8 md:px-12 md:pt-36 lg:px-[clamp(3rem,5vw,5rem)]"
+      className="relative isolate min-h-screen overflow-hidden bg-white px-5 pb-14 pt-20 sm:px-8 sm:pt-24 md:px-12 md:pt-36 lg:px-[clamp(3rem,5vw,5rem)]"
     >
       {/* The subtle contour map follows the reference and gives the flight path a calm surface to travel over. */}
       <svg
@@ -33,7 +33,33 @@ export default function Hero() {
       </svg>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-[1340px] flex-col justify-center">
-        <h1 className="font-display font-bold leading-[0.86] tracking-[-0.07em] text-[#111]">
+        <div className="md:hidden max-w-xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green backdrop-blur">
+            Digital Growth Agency
+          </div>
+          <h1 className="mt-5 text-[clamp(2.7rem,12vw,4.4rem)] font-display font-bold leading-[0.92] tracking-[-0.06em] text-[#111]">
+            Helping businesses grow digitally.
+          </h1>
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-text-light">
+            Strategy, branding, websites, ecommerce, content, and marketing built around one goal: stronger business growth.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-dark px-5 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-green hover:text-brand-dark"
+            >
+              Start Your Growth Journey
+            </a>
+            <a
+              href="#services"
+              className="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-semibold text-brand-dark transition-colors duration-300 hover:border-brand-green/30 hover:text-brand-green"
+            >
+              Explore Solutions
+            </a>
+          </div>
+        </div>
+
+        <h1 className="hidden font-display font-bold leading-[0.86] tracking-[-0.07em] text-[#111] md:block">
           <span className="flex flex-wrap items-center gap-x-[clamp(0.8rem,1.8vw,1.75rem)] gap-y-3 text-[clamp(3.55rem,7.15vw,7.1rem)]">
             <span className={`${capsuleClass} h-[0.7em] w-[1.12em]`}>
               <img
@@ -42,7 +68,7 @@ export default function Hero() {
                 className="h-full w-full object-cover"
               />
             </span>
-            <span className="text-brand-green">Digital Agency</span>
+            <span className="text-brand-green">Digital Growth</span>
           </span>
 
           <span className="mt-[clamp(1rem,2.6vw,2.4rem)] flex flex-wrap items-center gap-x-[clamp(0.8rem,1.8vw,1.75rem)] gap-y-3 text-[clamp(3.55rem,7.15vw,7.1rem)]">
@@ -64,7 +90,7 @@ export default function Hero() {
                 className="h-full w-full object-cover"
               />
             </span>
-            <span>Growth</span>
+            <span>Businesses</span>
 
             <span className="absolute left-[clamp(4.5rem,8vw,8rem)] top-[0.45em] flex h-[0.78em] w-[0.78em] items-center justify-center rounded-full border-[3px] border-white bg-brand-cyan font-sans text-[0.11em] font-semibold uppercase tracking-[0.08em] text-white shadow-lg shadow-brand-cyan/30 hover:bg-brand-green hover:text-brand-dark transition-colors duration-300">
               <span className="rotate-[-18deg]">See Our Work ↗</span>
@@ -76,8 +102,8 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="mt-9 max-w-sm text-sm leading-relaxed text-brand-text-light md:mt-12 md:text-base">
-          We design, build, and grow digital products that actually move your business forward.
+        <p className="hidden max-w-sm text-sm leading-relaxed text-brand-text-light md:mt-12 md:block md:text-base">
+          We combine strategy, design, development, and marketing to build digital systems that drive real business growth.
         </p>
       </div>
     </section>

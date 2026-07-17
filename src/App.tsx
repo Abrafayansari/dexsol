@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 // import BreezeAnimation from "./components/BreezeAnimation"; // Commented out — re-enable to restore aeroplane animation
 import About from "./components/About";
 import Services from "./components/Services";
+import Process from "./components/Process";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -123,6 +124,9 @@ export default function App() {
 
         {/* Core Services Section */}
         <Services />
+
+        {/* Process Section */}
+        <Process />
 
         {/* Customer Testimonials & Performance Statistics */}
         <Reviews />

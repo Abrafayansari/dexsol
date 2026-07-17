@@ -54,21 +54,21 @@ export default function About() {
           {/* Label Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 text-brand-cyan text-xs font-extrabold uppercase tracking-widest mb-6">
             <Heart size={12} className="stroke-[2.5]" />
-            <span>ABOUT DEXSEL</span>
+            <span>ABOUT DEXSOL</span>
           </div>
 
           {/* Title */}
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-[1.15] mb-6">
-            We Craft Digital Experiences That <span className="text-brand-green">Drive Results</span>
+            We build digital ecosystems that <span className="text-brand-green">create growth</span>
           </h2>
 
           {/* Description */}
           <p className="text-brand-text-light text-base leading-relaxed mb-4">
-            <strong>Dexsol</strong> is a digital solutions agency that designs and develops modern, fast, and scalable websites, apps, and digital products for businesses that want to grow online.
+            <strong>Dexsol</strong> is a digital growth agency that helps businesses strengthen their brand, sharpen their online presence, and build the systems they need to grow with confidence.
           </p>
 
           <p className="text-brand-text-light text-base leading-relaxed mb-8">
-            We don't just build websites — we create digital experiences that strengthen brands, improve engagement, and help businesses achieve their goals. Every project is approached with strategy first, design second, and a genuine commitment to quality throughout.
+            We do not approach work as isolated projects. We start with business goals, customer needs, and growth targets, then combine the right mix of strategy, branding, software, design, content, websites, ecommerce, and marketing to move the business forward.
           </p>
 
           {/* Grid of Key Strengths / Features */}
@@ -79,11 +79,9 @@ export default function About() {
                 <Zap size={20} className="stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-sm font-extrabold text-brand-dark mb-1">
-                  Fast Delivery
-                </h4>
+                <h4 className="text-sm font-extrabold text-brand-dark mb-1">Business-First Thinking</h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  We stick to timelines without cutting corners — your project ships when we say it will.
+                  Every decision is tied back to growth, not just aesthetics or output.
                 </p>
               </div>
             </div>
@@ -94,11 +92,9 @@ export default function About() {
                 <Lightbulb size={20} className="stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-sm font-extrabold text-brand-dark mb-1">
-                  Creative Ideas
-                </h4>
+                <h4 className="text-sm font-extrabold text-brand-dark mb-1">Tailored Growth Strategy</h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Original thinking over recycled templates. We design for your brand, not for a portfolio grid.
+                  No templates, no generic playbooks. Each plan is built around the business and its market.
                 </p>
               </div>
             </div>
@@ -109,11 +105,9 @@ export default function About() {
                 <Target size={20} className="stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-sm font-extrabold text-brand-dark mb-1">
-                  Results Driven
-                </h4>
+                <h4 className="text-sm font-extrabold text-brand-dark mb-1">Long-Term Partnership</h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Every design decision is tied back to a business outcome — traffic, leads, or conversions.
+                  We stay involved after launch to improve performance, adapt, and scale with the business.
                 </p>
               </div>
             </div>
@@ -124,11 +118,9 @@ export default function About() {
                 <ShieldCheck size={20} className="stroke-[2.5]" />
               </div>
               <div>
-                <h4 className="text-sm font-extrabold text-brand-dark mb-1">
-                  24/7 Priority Support
-                </h4>
+                <h4 className="text-sm font-extrabold text-brand-dark mb-1">Transparent Communication</h4>
                 <p className="text-brand-text-muted text-xs leading-relaxed">
-                  Real humans, real fast responses. We don't disappear after launch.
+                  Clear updates, honest feedback, and no surprises from kickoff to scale-up.
                 </p>
               </div>
             </div>
@@ -139,7 +131,7 @@ export default function About() {
             href="#contact"
             className="inline-flex items-center gap-2 px-7 py-4 bg-brand-cyan hover:bg-gradient-to-r hover:from-brand-cyan hover:to-brand-green text-white rounded-2xl text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 shadow-[0_8px_30px_rgba(5,91,101,0.25)] hover:shadow-[0_8px_30px_rgba(167,243,208,0.4)] cursor-pointer group"
           >
-            <span>Start a Project with Us</span>
+            <span>Let's Build for Growth</span>
             <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </a>
 

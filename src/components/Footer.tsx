@@ -24,7 +24,7 @@ export default function Footer() {
             </a>
 
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-6 max-w-sm">
-              We are a premium digital solutions agency that designs and develops modern, fast, and scalable digital experiences for businesses that want to grow online.
+              Dexsol is a digital growth agency helping businesses scale through strategy, branding, software development, websites, ecommerce, content creation, and digital marketing.
             </p>
 
             {/* Social Icons */}
@@ -97,7 +97,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3.5 list-none p-0 m-0">
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  Web Development
+                  Website Development
                 </a>
               </li>
               <li>
@@ -117,7 +117,17 @@ export default function Footer() {
               </li>
               <li>
                 <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
-                  SEO Optimization
+                  Digital Marketing
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
+                  Social Media Management
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="text-gray-400 hover:text-white transition-colors text-sm font-medium hover:translate-x-1 block duration-300">
+                  Video Editing
                 </a>
               </li>
             </ul>

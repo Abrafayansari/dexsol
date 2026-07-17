@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -12,7 +12,7 @@ export interface ServiceItem {
   num: string;
   title: string;
   desc: string;
-  icon: React.ReactNode;
+  icon: any;
   features: string[];
   gradient: string;
 }
@@ -22,55 +22,64 @@ const SERVICES_DATA: ServiceItem[] = [
     id: "web-dev",
     num: "01",
     title: "Website Development",
-    desc: "Custom, high-performance websites and web applications built using modern frameworks, fast-loading architecture, and clean, SEO-ready code.",
+    desc: "We build websites that do more than look polished. They load fast, communicate clearly, and turn attention into trust, leads, and sales.",
     icon: <Laptop className="w-6 h-6 stroke-[2]" />,
-    features: ["Fast & React JS", "Headless CMS", "Automated Pixel SEO", "Animations"],
+    features: ["Fast, modern code", "Search-ready structure", "Conversion-focused UX", "Ongoing optimization"],
     gradient: "bg-brand-green",
   },
   {
     id: "ui-ux",
     num: "02",
     title: "UI/UX Design",
-    desc: "User-centric screen designs crafted via systematic wireframing, high-fidelity mockups, and strategic layouts built to hold attention and drive action.",
+    desc: "We design interfaces that make it easier for customers to understand, trust, and choose your business.",
     icon: <Palette className="w-6 h-6 stroke-[2]" />,
-    features: ["Figma Wireframes", "Design Systems", "Pixel Layouts", "UX Auditing"],
+    features: ["Figma systems", "Clear user journeys", "Intentional layouts", "Usability improvements"],
     gradient: "bg-brand-cyan",
   },
   {
     id: "shopify",
     num: "03",
     title: "Shopify Development",
-    desc: "Advanced Shopify 2.0 storefront builds, custom product catalogs, subscription integrations, and streamlined single-page checkouts designed to boost conversions.",
+    desc: "We create Shopify experiences that make buying easier, increase conversion rates, and support scalable ecommerce growth.",
     icon: <ShoppingBag className="w-6 h-6 stroke-[2]" />,
-    features: ["Liquid Themes", "Custom Checkout", "Headless Shopify", "ERP Sync"],
+    features: ["Custom storefronts", "Checkout optimization", "Catalog strategy", "Growth tracking"],
     gradient: "bg-brand-yellow",
   },
   {
     id: "brand",
     num: "04",
     title: "Brand Identity",
-    desc: "Full brand discovery, identity design, and visual style guides, paired with market-positioning workshops that build authority and connect with your core audience.",
+    desc: "We build brands that feel credible, memorable, and aligned with the value you want customers to see.",
     icon: <Compass className="w-6 h-6 stroke-[2]" />,
-    features: ["Logo Systems", "Moodboards", "Positioning Maps", "Creative Assets"],
-    gradient: "bg-brand-green",
-  },
-  {
-    id: "seo",
-    num: "05",
-    title: "SEO Optimization",
-    desc: "In-depth search engine optimization covering semantic markup, schema validation, real-time index monitoring, and speed metrics tuned for measurable ranking gains.",
-    icon: <Search className="w-6 h-6 stroke-[2]" />,
-    features: ["Semantic Schema", "Index Monitoring", "Speed Audits", "Keyword Intel"],
+    features: ["Brand direction", "Visual identity", "Messaging clarity", "Trust-building assets"],
     gradient: "bg-brand-green",
   },
   {
     id: "marketing",
-    num: "06",
+    num: "05",
     title: "Digital Marketing",
-    desc: "Targeted brand campaigns, high-converting ad copy, pixel-based conversion tracking, and custom funnels built to expand your reach and grow revenue.",
+    desc: "We plan and manage marketing that brings the right people to your business and turns interest into measurable demand.",
     icon: <BarChart3 className="w-6 h-6 stroke-[2]" />,
-    features: ["Targeted Ads", "Funnel Copy", "Pixel Tracking", "ROI Attribution"],
+    features: ["Campaign strategy", "Audience targeting", "Conversion tracking", "Performance reporting"],
     gradient: "bg-brand-pink",
+  },
+  {
+    id: "social",
+    num: "06",
+    title: "Social Media Management",
+    desc: "We shape a consistent social presence that helps the right audience remember your brand, trust your expertise, and engage with your offers.",
+    icon: <Compass className="w-6 h-6 stroke-[2]" />,
+    features: ["Content planning", "Posting strategy", "Audience growth", "Brand consistency"],
+    gradient: "bg-brand-cyan",
+  },
+  {
+    id: "video",
+    num: "07",
+    title: "Video Editing",
+    desc: "We turn raw footage into clear, engaging content that supports launches, campaigns, explainers, and social growth.",
+    icon: <Laptop className="w-6 h-6 stroke-[2]" />,
+    features: ["Short-form edits", "Campaign videos", "Story-driven cuts", "Brand-aligned visuals"],
+    gradient: "bg-brand-green",
   }
 ];
 
@@ -130,19 +139,19 @@ export default function ServiceStack() {
   return (
     <div
       ref={sectionRef}
-      className="relative w-full max-w-7xl mx-auto px-5 sm:px-6 pt-6 md:pt-14 pb-20 md:pb-[24vh] my-4 md:my-10 flex flex-col md:flex-row gap-8 md:gap-10 lg:gap-14 items-start"
+      className="relative w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 pt-6 md:pt-14 pb-20 md:pb-[24vh] my-4 md:my-10 flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-14 items-start"
     >
-      <div className="w-full md:w-[330px] lg:w-[390px] shrink-0 md:sticky md:top-[12vh] bg-white/90 border border-black/5 rounded-[28px] p-6 sm:p-8 lg:p-10 flex flex-col justify-between shadow-[0_24px_80px_rgba(17,24,39,0.07)] backdrop-blur">
+      <div className="w-full md:w-[330px] lg:w-[390px] shrink-0 md:sticky md:top-[12vh] bg-white/90 border border-black/5 rounded-[28px] p-5 sm:p-8 lg:p-10 flex flex-col justify-between shadow-[0_24px_80px_rgba(17,24,39,0.07)] backdrop-blur">
         <div>
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-green/10 border border-brand-green/20 text-brand-green text-[11px] font-mono font-bold uppercase tracking-[0.15em] mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse" />
-            <span>SPECIALIZED CAPABILITIES</span>
+            <span>GROWTH SOLUTIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-brand-dark tracking-tight leading-tight mb-5">
-            Services built to move the needle.
+            Everything we do is built around business growth.
           </h2>
           <p className="text-brand-text-light text-sm lg:text-base leading-relaxed mb-7">
-            Strategy, design, code, commerce, and growth systems shaped into digital work that feels sharp on launch day and keeps compounding after it.
+            We match the right mix of strategy, design, development, content, commerce, and marketing to the challenge in front of you. Nothing is isolated. Every piece supports the next.
           </p>
         </div>
         <a
@@ -154,29 +163,29 @@ export default function ServiceStack() {
         </a>
       </div>
 
-      <div className="relative w-full flex-1 grid gap-5 md:gap-0 mt-2 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
+      <div className="relative w-full flex-1 grid gap-4 sm:gap-5 md:gap-0 mt-2 md:mt-0" style={{ gridTemplateRows: '1fr' }}>
         {SERVICES_DATA.map((service, i) => (
           <div
             key={service.id}
-            ref={el => {
+            ref={(el: HTMLDivElement | null) => {
               cardsRef.current[i] = el;
             }}
-            className="relative w-full overflow-hidden rounded-[28px] p-6 sm:p-8 md:p-10 shadow-[0_18px_55px_rgba(17,24,39,0.08)] md:shadow-[0_-14px_44px_rgba(17,24,39,0.08)] border border-black/5 flex flex-col will-change-transform bg-white md:[grid-area:1/1/2/2]"
+            className="relative w-full overflow-hidden rounded-[28px] p-5 sm:p-8 md:p-10 shadow-[0_18px_55px_rgba(17,24,39,0.08)] md:shadow-[0_-14px_44px_rgba(17,24,39,0.08)] border border-black/5 flex flex-col will-change-transform bg-white md:[grid-area:1/1/2/2]"
             style={{
               zIndex: i + 1,
-              minHeight: "clamp(390px, 58vh, 500px)"
+              minHeight: "clamp(340px, 52vh, 480px)"
             }}
           >
             <div className={`absolute top-0 left-0 w-full h-1.5 ${service.gradient}`} />
             <div className="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-brand-bg pointer-events-none" />
 
-            <div className="relative flex items-start justify-between gap-4 mb-7">
+            <div className="relative flex items-start justify-between gap-4 mb-6 sm:mb-7">
               <div className="flex items-start gap-4 min-w-0">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex shrink-0 items-center justify-center bg-brand-bg text-brand-dark border border-black/5">
                   {service.icon}
                 </div>
                 <div className="min-w-0">
-                  <span className="text-[10px] text-brand-teGxt-muted font-mono tracking-[0.2em] uppercase">
+                  <span className="text-[10px] text-brand-text-muted font-mono tracking-[0.2em] uppercase">
                     CAPABILITY // {service.num}
                   </span>
                   <h3 className="text-2xl lg:text-3xl font-bold text-brand-dark tracking-tight mt-1 leading-tight">
@@ -189,7 +198,7 @@ export default function ServiceStack() {
               </span>
             </div>
 
-            <p className="relative text-brand-text-light text-sm sm:text-base leading-relaxed mb-7 flex-1 max-w-2xl">
+            <p className="relative text-brand-text-light text-sm sm:text-base leading-relaxed mb-6 sm:mb-7 flex-1 max-w-2xl">
               {service.desc}
             </p>
 
