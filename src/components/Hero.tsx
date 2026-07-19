@@ -37,7 +37,7 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green backdrop-blur">
             Digital Growth Agency
           </div>
-          <h1 className="mt-5 max-w-[9ch] text-[clamp(2.5rem,11vw,4.1rem)] font-display font-bold leading-[0.98] tracking-[-0.04em] text-[#111]">
+          <h1 className="mt-5 flex max-w-[9ch] flex-col gap-2 text-[clamp(2.45rem,10.5vw,4rem)] font-display font-bold leading-none tracking-[-0.04em] text-[#111]">
             <span className="block">Helping</span>
             <span className="block">businesses</span>
             <span className="block">grow digitally.</span>
