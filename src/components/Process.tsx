@@ -33,7 +33,7 @@ export default function Process() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-green/10 text-brand-green text-xs font-bold uppercase tracking-widest mb-4">
             <span>PROCESS</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-brand-dark leading-[1.1] mb-4">
+          <h2 className="max-w-[12ch] font-display text-[clamp(2.5rem,7vw,3.75rem)] font-bold tracking-[-0.04em] text-brand-dark leading-[1.03] text-balance mb-4">
             A simple process built around business growth.
           </h2>
           <p className="text-brand-text-light text-base md:text-lg leading-relaxed max-w-xl">

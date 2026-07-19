@@ -37,10 +37,12 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green backdrop-blur">
             Digital Growth Agency
           </div>
-          <h1 className="mt-5 text-[clamp(2.7rem,12vw,4.4rem)] font-display font-bold leading-[0.92] tracking-[-0.06em] text-[#111]">
-            Helping businesses grow digitally.
+          <h1 className="mt-5 max-w-[9ch] text-[clamp(2.5rem,11vw,4.1rem)] font-display font-bold leading-[0.98] tracking-[-0.04em] text-[#111]">
+            <span className="block">Helping</span>
+            <span className="block">businesses</span>
+            <span className="block">grow digitally.</span>
           </h1>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-text-light">
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-text-light text-balance">
             Strategy, branding, websites, ecommerce, content, and marketing built around one goal: stronger business growth.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
