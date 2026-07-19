@@ -30,30 +30,38 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex items-center gap-2.5">
               <a
-                href="#"
+                href="https://www.instagram.com/dexsol.official/"
                 className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-green hover:border-brand-green hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Instagram size={18} />
               </a>
               <a
-                href="#"
+                href="https://x.com/dexsolofficial"
                 className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-green hover:border-brand-green hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
-                aria-label="Twitter"
+                aria-label="X / Twitter"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Twitter size={18} />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/dexsolofficial/"
                 className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-green hover:border-brand-green hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Linkedin size={18} />
               </a>
               <a
-                href="#"
+                href="https://web.facebook.com/profile.php?id=61592006753099"
                 className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-brand-green hover:border-brand-green hover:text-brand-dark text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noreferrer"
               >
                 <Facebook size={18} />
               </a>

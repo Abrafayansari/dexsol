@@ -73,10 +73,10 @@ export default function Portfolio() {
               <Folder size={14} className="stroke-[2.5]" />
               <span>Selected Case Studies</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-dark">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-dark mb-5 sm:mb-6">
               Our Creative <span className="text-brand-green">Portfolio</span>
             </h2>
-            <p className="mt-4 text-brand-text-light max-w-lg text-sm md:text-base leading-relaxed">
+            <p className="mt-5 sm:mt-6 text-brand-text-light max-w-lg text-sm md:text-base leading-7 sm:leading-relaxed">
               We design and build custom websites, e-commerce storefronts, and digital products that combine strategy, modern technology, and elegant performance.
             </p>
           </div>
