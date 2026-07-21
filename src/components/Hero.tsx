@@ -37,12 +37,10 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-green/15 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.16em] text-brand-green backdrop-blur">
             Digital Growth Agency
           </div>
-          <h1 className="mt-5 flex max-w-[9ch] flex-col gap-2 text-[clamp(2.45rem,10.5vw,4rem)] font-display font-bold leading-none tracking-[-0.04em] text-[#111]">
-            <span className="block">Helping</span>
-            <span className="block">businesses</span>
-            <span className="block">grow digitally.</span>
+          <h1 className="mt-5 text-[clamp(2.7rem,12vw,4.4rem)] font-display font-bold leading-[0.92] tracking-[-0.06em] text-brand-dark">
+            Helping businesses grow digitally.
           </h1>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-text-light text-balance">
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-brand-text-light">
             Strategy, branding, websites, ecommerce, content, and marketing built around one goal: stronger business growth.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -61,7 +59,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <h1 className="hidden font-display font-bold leading-[0.86] tracking-[-0.07em] text-[#111] md:block">
+        <h1 className="hidden font-display font-bold leading-[0.86] tracking-[-0.07em] text-brand-dark md:block">
           <span className="flex flex-wrap items-center gap-x-[clamp(0.8rem,1.8vw,1.75rem)] gap-y-3 text-[clamp(3.55rem,7.15vw,7.1rem)]">
             <span className={`${capsuleClass} h-[0.7em] w-[1.12em]`}>
               <img
