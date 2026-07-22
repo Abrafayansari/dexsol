@@ -1,36 +1,107 @@
-const capsuleClass = "shrink-0 overflow-hidden rounded-[999px] border border-white/70 shadow-[0_10px_25px_rgba(20,31,29,0.12)]";
+import { useRef, useEffect } from "react";
+
+/* ── Parallax layer data ────────────────────────────────────────────── */
+const PATH_GROUPS = [
+  // Layer 0 (deepest — fastest parallax)
+  [
+    "M-50 32C170 8 254 76 435 40s289 54 469 3 258 76 410 7 193 8 190 8",
+    "M-50 39C169 15 253 83 435 47s290 53 470 2 258 77 410 8 193 8 190 8",
+  ],
+  // Layer 1
+  [
+    "M-35 70C130 135 214 194 367 126s213-29 357 4 260-15 364-83 224 24 343 8",
+    "M-25 83C135 148 218 207 371 139s214-29 358 4 259-15 364-83 224 24 343 8",
+  ],
+  // Layer 2
+  [
+    "M-45 160C141 238 241 205 369 157s269 36 388 2 208-93 342-42 243-2 371-75",
+    "M-42 174C144 252 244 218 373 170s267 36 388 2 208-93 341-42 243-2 371-75",
+  ],
+  // Layer 3
+  [
+    "M-55 254C108 218 206 296 362 253s285 31 419-4 226 35 365 17 213-72 356-16",
+    "M-52 268C111 232 209 309 365 266s285 31 419-4 226 35 365 17 213-72 356-16",
+  ],
+  // Layer 4
+  [
+    "M-60 356C102 311 238 376 401 332s291 47 410 5 207-33 341 12 251-36 354-6",
+    "M-58 370C105 325 240 390 404 346s291 47 410 5 207-33 341 12 251-36 354-6",
+  ],
+  // Layer 5 (closest — slowest parallax)
+  [
+    "M-60 504C91 470 224 524 384 484s259 54 418 0 216-23 345 14 250-32 369-2",
+    "M-58 518C94 484 227 538 387 498s259 54 418 0 216-23 345 14 250-32 369-2",
+    "M-50 684C122 646 247 715 397 664s263 31 404-8 223 39 347-2 228-59 361-6",
+    "M-48 698C124 660 250 729 400 678s263 31 404-8 223 39 347-2 228-59 361-6",
+  ],
+];
+
+/* Speed multiplier per layer (higher = faster) */
+const SPEEDS = [0.55, 0.40, 0.30, 0.20, 0.10, 0.035];
+
+const capsuleClass =
+  "shrink-0 overflow-hidden rounded-[999px] border border-white/70 shadow-[0_10px_25px_rgba(20,31,29,0.12)]";
 
 export default function Hero() {
+  const layerRefs = useRef<(SVGGElement | null)[]>([]);
+
+  /* ── Scroll-driven parallax ────────────────────────────────────────── */
+  useEffect(() => {
+    let rafId: number;
+
+    const onScroll = () => {
+      if (rafId) return;
+      rafId = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        layerRefs.current.forEach((g, i) => {
+          if (g) g.style.transform = `translateY(${(y * SPEEDS[i]).toFixed(1)}px)`;
+        });
+        rafId = 0;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
+  }, []);
+
+  /* ── Shared setter for ref array ───────────────────────────────────── */
+  const setLayerRef = (i: number) => (el: SVGGElement | null) => {
+    layerRefs.current[i] = el;
+  };
+
   return (
     <section
       id="home"
       className="relative isolate min-h-screen overflow-hidden bg-white px-5 pb-14 pt-20 sm:px-8 sm:pt-24 md:px-12 md:pt-36 lg:px-[clamp(3rem,5vw,5rem)]"
     >
-      {/* The subtle contour map follows the reference and gives the flight path a calm surface to travel over. */}
-      <svg
-        className="pointer-events-none absolute inset-0 h-full w-full opacity-60"
-        viewBox="0 0 1440 900"
-        preserveAspectRatio="none"
-        fill="none"
-        aria-hidden="true"
-      >
-        <g stroke="#d9dfdc" strokeWidth="1.15">
-          <path d="M-50 32C170 8 254 76 435 40s289 54 469 3 258 76 410 7 193 8 190 8" />
-          <path d="M-50 39C169 15 253 83 435 47s290 53 470 2 258 77 410 8 193 8 190 8" />
-          <path d="M-35 70C130 135 214 194 367 126s213-29 357 4 260-15 364-83 224 24 343 8" />
-          <path d="M-25 83C135 148 218 207 371 139s214-29 358 4 259-15 364-83 224 24 343 8" />
-          <path d="M-45 160C141 238 241 205 369 157s269 36 388 2 208-93 342-42 243-2 371-75" />
-          <path d="M-42 174C144 252 244 218 373 170s267 36 388 2 208-93 341-42 243-2 371-75" />
-          <path d="M-55 254C108 218 206 296 362 253s285 31 419-4 226 35 365 17 213-72 356-16" />
-          <path d="M-52 268C111 232 209 309 365 266s285 31 419-4 226 35 365 17 213-72 356-16" />
-          <path d="M-60 356C102 311 238 376 401 332s291 47 410 5 207-33 341 12 251-36 354-6" />
-          <path d="M-58 370C105 325 240 390 404 346s291 47 410 5 207-33 341 12 251-36 354-6" />
-          <path d="M-60 504C91 470 224 524 384 484s259 54 418 0 216-23 345 14 250-32 369-2" />
-          <path d="M-58 518C94 484 227 538 387 498s259 54 418 0 216-23 345 14 250-32 369-2" />
-          <path d="M-50 684C122 646 247 715 397 664s263 31 404-8 223 39 347-2 228-59 361-6" />
-          <path d="M-48 698C124 660 250 729 400 678s263 31 404-8 223 39 347-2 228-59 361-6" />
-        </g>
-      </svg>
+      {/* ── Parallax contour-map layers ─────────────────────────────── */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden opacity-60">
+        <svg
+          className="h-full w-full"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="none"
+          fill="none"
+          aria-hidden="true"
+        >
+          {PATH_GROUPS.map((paths, i) => (
+            <g
+              key={i}
+              ref={setLayerRef(i)}
+              className="parallax-layer"
+              stroke="#d9dfdc"
+              strokeWidth="1.15"
+              style={{ willChange: "transform" }}
+            >
+              {paths.map((d, j) => (
+                <path key={j} d={d} />
+              ))}
+            </g>
+          ))}
+        </svg>
+      </div>
 
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-[1340px] flex-col justify-center">
         <div className="md:hidden max-w-xl">

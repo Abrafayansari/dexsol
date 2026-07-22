@@ -115,7 +115,12 @@ body::before {
   background-size: 256px 256px;
 }
 
-/* Lenis smooth scrolling compatibility */
+/* ── Parallax scrolling layers ────────────────────────────────────────── */
+.parallax-layer {
+  will-change: transform;
+}
+
+/* ── Lenis smooth scrolling compatibility ─────────────────────────────*/
 html.lenis,
 html.lenis-scrolling {
   scroll-behavior: auto !important;
