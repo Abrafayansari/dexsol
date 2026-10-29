@@ -129,7 +129,7 @@ export default function App() {
         <Process />
 
         {/* Customer Testimonials & Performance Statistics */}
-        <Reviews />
+        //<Reviews />
 
         {/* Interactive Message / Request Proposals Form */}
         <Contact />
